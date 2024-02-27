@@ -1,7 +1,7 @@
 #include"main.h"
 /**
 * main - Prints number
-*
+* @x: int
 * Return: Always 0.
 */
 int _isupper(int x)
