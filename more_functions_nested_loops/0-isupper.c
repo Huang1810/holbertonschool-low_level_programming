@@ -1,6 +1,6 @@
 #include"main.h"
 /**
-* main - Prints number
+* _isupper - Prints number
 * @x: int
 * Return: Always 0.
 */
