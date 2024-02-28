@@ -1,8 +1,9 @@
 #include"main.h"
 /**
 * _mul - Prints number
-* @x: int
-* Return: Always 0.
+* @x: multiple
+* @y: multiple
+* Return: void.
 */
 int mul(int x, int y)
 {
