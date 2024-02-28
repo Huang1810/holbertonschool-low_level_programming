@@ -1,6 +1,6 @@
 #include"main.h"
 /**
-* _mul - Prints number
+* _mul - multiplies two integers.
 * @x: multiple
 * @y: multiple
 * Return: void.
