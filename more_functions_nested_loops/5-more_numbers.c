@@ -1,6 +1,6 @@
 #include"main.h"
 /**
-* print more_numbers - entry point
+* more_numbers - entry point
 * Description: Prints number
 * Return: Always 0.
 */
