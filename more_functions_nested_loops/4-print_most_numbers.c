@@ -1,6 +1,6 @@
 #include"main.h"
 /**
-* print_numbers - Prints number
+* pprint_most_numbers - Prints number
 * Description: Prints number
 * Return: Always 0.
 */
