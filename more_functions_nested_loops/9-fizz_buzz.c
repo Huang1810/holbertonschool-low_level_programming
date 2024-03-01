@@ -13,9 +13,13 @@ if ((x % 3 == 0) && (x % 5 == 0))
 {
 printf("fizzbuzz");
 }
-else if (x % 3 == 0)
+else if ((x % 3 == 0) && (x % 5 != 0))
 {
 printf("Fizz");
+}
+else if ((x % 3 != 0) && (x % 5 == 0))
+{
+printf("buzz");
 }
 else
 {
