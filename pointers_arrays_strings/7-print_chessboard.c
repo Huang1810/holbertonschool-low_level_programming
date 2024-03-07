@@ -13,10 +13,10 @@ int i, n;
 i = n = 0;
 while (i < 8)
 {
-    n = 0;
-    while (n < 8)
+n = 0;
+while (n < 8)
 {
-_putchar(a[i] [n]);
+_putchar(a[i][n]);
 n++;
 }
 _putchar('\n');
