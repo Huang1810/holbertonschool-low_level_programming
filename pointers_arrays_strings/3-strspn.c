@@ -15,7 +15,10 @@ while (*s)
 for (n = 0; accept[n]; n++)
 {
 if (*s == accept[n])
+{
 i++;
+break;
+}
 if (accept [n + 1] == '\0')
 return (i);
 }
