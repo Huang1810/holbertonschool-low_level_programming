@@ -12,7 +12,7 @@ int i;
 int n;
 for (i = 0; s[i] != '\0'; i++)
 { 
-for (n = 0; accept [n] != '\0'; n++)
+for (n = 0; s[n] != accept[n]; n++)
 {
 if (accept [n] == '\0')
 return (i);
