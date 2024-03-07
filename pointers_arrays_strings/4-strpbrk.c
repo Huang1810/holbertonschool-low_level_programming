@@ -18,5 +18,5 @@ if (s[i] == accept[n])
 return (s + i);
 }
 }
-return (null);
+return (NULL);
 }
