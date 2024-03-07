@@ -14,10 +14,10 @@ for (i = 0; s[i] != '\0'; i++)
 { 
 for (n = 0; accept [n] != '\0'; n++)
 {
-if (accept [n] == s[i])
-{
-if (accept[n] == s[i])
+if (accept [n] == '\0')
+return (i);
 }
 }
+return (0);
 }
-}
+
