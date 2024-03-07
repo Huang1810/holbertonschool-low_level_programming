@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _strchr - Entry point
+ * _strstr - Entry point 
  * @haystack: input
  * @needle: input
  * Description: locates a character in a string.
