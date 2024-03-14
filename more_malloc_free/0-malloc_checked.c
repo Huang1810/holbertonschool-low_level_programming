@@ -4,15 +4,15 @@
 
 /**
  * *malloc_checked - allocate memory
- * @b: unsigned int type
+ * @b: the size to allocate
  * Return: Nothing.
  */
 void *malloc_checked(unsigned int b)
 {
-	void *p;
+void *p;
 
-	p = malloc(b);
-	if (ptr == NULL)
-		exit(98);
-	return (p);
+p = malloc(b);
+if (ptr == NULL)
+exit(98);
+return (p);
 }
