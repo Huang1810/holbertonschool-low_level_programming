@@ -22,8 +22,9 @@ doggy = malloc(sizeof(dog_t));
 if (doggy == NULL)
 return (NULL);
 
-doggy->name = malloc(nlen * sizeof(char));
-if (doggy->name == NULL) {
+doggy->name = malloc(nlen *sizeof(char));
+if (doggy->name == NULL)
+{
 free(doggy);
 return (NULL);
 }
