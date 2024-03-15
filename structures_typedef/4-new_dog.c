@@ -25,7 +25,7 @@ return (NULL);
 doggy->name = malloc(nlen * sizeof(char));
 if (doggy->name == NULL) {
 free(doggy);
-return NULL;
+return (NULL);
 }
 for (i = 0; i < nlen; i++)
 doggy->name[i] = name[i];
@@ -33,13 +33,14 @@ doggy->name[i] = name[i];
 doggy->age = age;
 
 doggy->owner = malloc(olen * sizeof(char));
-if (doggy->owner == NULL) {
+if (doggy->owner == NULL)
+{
 free(doggy->name);
 free(doggy);
-return NULL;
+return (NULL);
 }
 for (i = 0; i < olen; i++)
 doggy->owner[i] = owner[i];
 
-return doggy;
+return (doggy);
 }
