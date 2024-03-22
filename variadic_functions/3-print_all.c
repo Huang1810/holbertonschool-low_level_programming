@@ -1,93 +1,81 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "variadic_functions.h"
-
 /**
- * printf_char - printfs a char from var args
- *
- * @list: va_list to print from
- *
- * Return: void
+ * print_char - Prints a char
+ * @ap: Argument pointer
  */
-void printf_char(va_list list)
+void print_char(va_list ap)
 {
-printf("%c", (char) va_arg(list, int));
+printf("%c", va_arg(ap, int));
 }
 
 /**
- * printf_int - printfs an int from var args
- *
- * @list: va_list to print from
- *
- * Return: void
+ * print_integer - Prints an integer
+ * @ap: Argument pointer
  */
-void printf_int(va_list list)
+void print_integer(va_list ap)
 {
-printf("%d", va_arg(list, int));
+printf("%d", va_arg(ap, int));
 }
 
 /**
- * printf_float - printfs a float from var args
- *
- * @list: va_list to print from
- *
- * Return: void
+ * print_float - Prints a float
+ * @ap: Argument pointer
  */
-void printf_float(va_list list)
+void print_float(va_list ap)
 {
-printf("%f", (float) va_arg(list, double));
+printf("%f", va_arg(ap, double));
 }
 
 /**
- * printf_string - printfs a string from var args
- *
- * @list: va_list to print from
- *
- * Return: void
+ * print_string - Prints a string
+ * @ap: Argument pointer
  */
-void printf_string(va_list list)
+void print_string(va_list ap)
 {
-char *str = va_arg(list, char*);
-while (str != NULL)
+char *s = va_arg(ap, char *);
+if (!s)
 {
-printf("%s", str);
+printf("(nil)");
 return;
 }
-printf("(nil)");
+printf("%s", s);
 }
 
-
 /**
- * print_all - prints various types given a format string for the arguments
- *
- * @format: string containing type information for args
- *
- * Return: void
+ * print_all - Prints anything
+ * @format: Types of arguments passed to function
  */
 void print_all(const char * const format, ...)
 {
-const char *ptr;
-va_list list;
-funckey key[4] = { {printf_char, 'c'}, {printf_int, 'i'},
-{printf_float, 'f'}, {printf_string, 's'} };
-int keyind = 0, notfirst = 0;
-ptr = format;
-va_start(list, format);
-while (format != NULL && *ptr)
+print_type types[] = {
+{"c", print_char},
+{"i", print_integer},
+{"f", print_float},
+{"s", print_string},
+{NULL, NULL}
+};
+va_list ap;
+char *separator = "";
+int i = 0;
+int j = 0;
+va_start(ap, format);
+while (format && format[i])
 {
-if (key[keyind].spec == *ptr)
+while (types[j].type)
 {
-if (notfirst)
-printf(", ");
-notfirst = 1;
-key[keyind].f(list);
-ptr++;
-keyind = -1;
+if (*types[j].type == format[i])
+{
+printf("%s", separator);
+types[j].f(ap);
+separator = ", ";
 }
-keyind++;
-ptr += keyind / 4;
-keyind %= 4;
+++j;
+}
+j = 0;
+++i;
 }
 printf("\n");
-va_end(list);
+va_end(ap);
 }
