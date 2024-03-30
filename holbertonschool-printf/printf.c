@@ -1,7 +1,8 @@
 #include <stdarg.h>
 #include <stdio.h>
-int custom_printf(const char *format, ...) {
-va_list args;
+int custom_printf(const char *format, ...)
+{
+va_list args
 int count = 0;
 char c;
 va_start(args, format);
@@ -55,6 +56,6 @@ return count;
 }
 int main()
 {
-    custom_printf("Hello, %s! My favorite character is %c and I have %d%% chance of winning.\n","world", 'A', 80);
+custom_printf("Hello, %s! My favorite character is %c and I have %d%% chance of winning.\n","world", 'A', 80);
 return 0;
 }
