@@ -1,57 +1,46 @@
-#include "printf.h"
-#include <stdio.h>
-#include <stdarg.h>
-
+#include "main.h"
+#include <unistd.h>
+/**
+ * _printf - Emulate the original.
+ *
+ * @format: Format by specifier.
+ *
+ * Return: count of chars.
+ */
 int _printf(const char *format, ...)
 {
+int i = 0, count = 0, count_fun;
 va_list args;
-int count = 0;
-char c;
 va_start(args, format);
-while ((c = *format++) != '\0')
+if (!format || (format[0] == '%' && !format[1]))
+return (-1);
+if (format[0] == '%' && format[1] == ' ' && !format[2])
+return (-1);
+while (format[i])
 {
-if (c == '%')
+count_fun = 0;
+if (format[i] == '%')
 {
-// Handle conversion specifiers
-switch (*format++)
+if (!format[i + 1] || (format[i + 1] == ' ' && !format[i + 2]))
 {
-case 'c':
-{
-// Print a character
-char character = va_arg(args, int);
-putchar(character);
-count++;
+count = -1;
 break;
 }
-case 's':
+count_fun += get_function(format[i + 1], args);
+if (count_fun == 0)
+count += _putchar(format[i + 1]);
+if (count_fun == -1)
+count = -1;
+i++;
+}
+else
 {
-// Print a string
-const char *str = va_arg(args, const char *);
-while (*str != '\0')
-{
-putchar(*str++);
-count++;
+(count == -1) ? (_putchar(format[i])) : (count += _putchar(format[i]));
 }
-break;
-}
-case '%':
-{
-// Print a literal '%'
-putchar('%');
-count++;
-break;
-}
-default:
-// Ignore unsupported conversion specifiers
-break;
-}
-} else
-{
-// Print non-format characters
-putchar(c);
-count++;
-}
+i++;
+if (count != -1)
+count += count_fun;
 }
 va_end(args);
-return count;
+return (count);
 }
