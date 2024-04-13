@@ -6,7 +6,6 @@
  */
 int print_rev_string(va_list args)
 {
-
 int count_fun = 0, i = 0;
 char *s = va_arg(args, char *);
 if (!s)

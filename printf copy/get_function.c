@@ -28,6 +28,7 @@ if (con_spec == spec[i].specifiers)
 count_fun += spec[i].f(args);
 i++;
 }
+
 if (count_fun == 0)
 {
 count_fun += _putchar('%');
